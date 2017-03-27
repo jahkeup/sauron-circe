@@ -1,10 +1,10 @@
-;;; sauron-circe.el --- Add desktop notifications to Circe.
+;;; sauron-circe.el --- Add desktop notifications to Circe.         -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2014 - 2016 Ruben Maher
 
-;; Version: 1.0
-;; Author: Ruben Maher <r@rkm.id.au>
-;; URL: https://github.com/eqyiel/sauron-circe
+;; Version: 0.1
+;; Author: Sébastien Le Maguer 
+;; URL: https://github.com/seblemaguer/sauron-circe
 ;; Package-Requires: ((emacs "24.4") (circe "2.3") (alert "1.2"))
 
 ;; This program is free software: you can redistribute it and/or modify
@@ -20,6 +20,10 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+;;; Commentary:
+
+;; Sauron support for circe IRC client
+
 ;;; Contributors:
 
 ;; Michael McCracken <michael.mccracken@gmail.com>
@@ -29,11 +33,11 @@
 
 ;;; Code:
 
-;; (require 'circe)
+(require 'circe)
 (require 'sauron)
 
 (defgroup sauron-circe nil
-  "Add desktop notifications to Circe."
+  "Add Sauron notifications to Circe."
   :prefix "sauron-circe-"
   :group 'circe)
 
@@ -169,6 +173,8 @@ the last message from NICK?"
       (advice-add 'circe-display-PART :after 'sauron-circe-PART)
       (setq sr-mu4e-running t))))
 
+
+;;;###autoload
 (defun sauron-circe-stop ()
   "Turn off notifications."
   (interactive)
@@ -184,6 +190,4 @@ the last message from NICK?"
       (setq sauron-circe-running nil))))
 
 (provide 'sauron-circe)
-
-
 ;;; sauron-circe.el ends here
