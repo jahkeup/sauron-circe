@@ -171,7 +171,7 @@ the last message from NICK?"
       (advice-add 'circe-display-channel-quit :after 'sauron-circe-QUIT)
       (advice-add 'circe-display-JOIN :after 'sauron-circe-JOIN)
       (advice-add 'circe-display-PART :after 'sauron-circe-PART)
-      (setq sr-mu4e-running t))))
+      (setq sr-circe-running t))))
 
 
 ;;;###autoload
